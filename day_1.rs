@@ -1,6 +1,6 @@
 use std::io;
 use std::io::BufRead;
-// use std::fs::read;
+use std::process::exit;
 
 pub fn day_1(part: i8) {
     let lines = read_input();
@@ -51,15 +51,19 @@ fn read_input() -> Vec<isize>{
 
     let mut lines = Vec::new();
     for line in stdin.lock().lines() {
-        let ln = line.unwrap();
+        let ln = line.unwrap_or_default();
 
         if ln.is_empty() {
-        //     return
             return lines;
         }
 
-        lines.push(ln.trim().parse().unwrap());
-        // println!("{}", line.unwrap())
+        let value = ln.trim().parse();
+        if value.is_err() {
+            println!("Input error!");
+            exit(-1);
+        }
+
+        lines.push(value.unwrap());
     }
 
     return lines

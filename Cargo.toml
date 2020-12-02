@@ -1,5 +1,5 @@
 [package]
-name = "adventOfCode2020"
+name = "advent_of_code_2020"
 version = "0.1.0"
 authors = ["DanielsWrath <daniel@danielhaitink.nl>"]
 edition = "2018"
@@ -10,5 +10,5 @@ edition = "2018"
 itertools = "0.9"
 
 [[bin]]
-name = "adventOfCode2020"
+name = "advent_of_code_2020"
 path = "main.rs"
