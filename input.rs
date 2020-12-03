@@ -27,14 +27,14 @@ pub fn read_input_until_empty() -> Vec<String> {
         lines.push(ln.trim().parse().unwrap());
     }
 
-    return lines
+    return lines;
 }
 
 pub fn read_input_indefinitely(function: fn(str: String)) {
     let stdin = io::stdin();
 
     for line in stdin.lock().lines() {
-        if line.is_err() {println!("Line input resulted in error")}
+        if line.is_err() { println!("Line input resulted in error") }
         function(line.unwrap_or_default());
     }
 }

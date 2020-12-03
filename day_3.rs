@@ -6,13 +6,13 @@ enum Square {
     Open,
     Tree,
     Empty,
-    Count
+    Count,
 }
 
 struct Area {
     map: Vec<Vec<Square>>,
     height: usize,
-    width: usize
+    width: usize,
 }
 
 impl Area {
@@ -64,7 +64,7 @@ fn check_steps(area: &Area, x_inc: usize, y_inc: usize) -> usize {
         x += x_inc;
 
         match area.map[x % (area.width)][y] {
-            Square::Open => {},
+            Square::Open => {}
             Square::Tree => trees += 1,
             Square::Empty => {}
             Square::Count => {}
@@ -84,7 +84,7 @@ fn part_one(area: &Area) {
         x += 3;
 
         match area.map[x % (area.width)][y] {
-            Square::Open => {},
+            Square::Open => {}
             Square::Tree => trees += 1,
             Square::Empty => {}
             Square::Count => {}
@@ -92,20 +92,19 @@ fn part_one(area: &Area) {
     }
 
     println!("Trees:{}", trees);
-
 }
 
 fn parse_input(lines: &Vec<String>) -> Area {
-    let mut area = Area{
+    let mut area = Area {
         map: vec![vec![Square::Empty; lines.len()]; lines[0].len()],
         height: lines.len(),
-        width: lines[0].len()
+        width: lines[0].len(),
     };
 
-    let mut idx :usize = 0;
+    let mut idx: usize = 0;
     for line in lines {
         parse_line(line, &mut area, &idx);
-        idx+=1;
+        idx += 1;
     }
 
     return area;
@@ -119,6 +118,6 @@ fn parse_line(line: &String, area: &mut Area, x: &usize) {
             '.' => area.map[idx][*x] = Square::Open,
             _ => {}
         }
-        idx+=1;
+        idx += 1;
     }
 }

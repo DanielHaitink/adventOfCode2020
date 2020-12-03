@@ -10,7 +10,6 @@ pub fn day_1(part: i8) {
     } else {
         part_two(lines);
     }
-
 }
 
 fn part_one(lines: Vec<isize>) {
@@ -44,9 +43,10 @@ fn part_two(lines: Vec<isize>) {
                 }
             }
         }
-    }}
+    }
+}
 
-fn read_input() -> Vec<isize>{
+fn read_input() -> Vec<isize> {
     let stdin = io::stdin();
 
     let mut lines = Vec::new();
@@ -66,5 +66,5 @@ fn read_input() -> Vec<isize>{
         lines.push(value.unwrap());
     }
 
-    return lines
+    return lines;
 }

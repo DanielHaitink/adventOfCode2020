@@ -6,7 +6,7 @@ struct Password {
     password: String,
     min: isize,
     max: isize,
-    policy_letter: char
+    policy_letter: char,
 }
 
 pub fn day_2(part: i8) {
@@ -47,7 +47,7 @@ fn get_passwords(lines: &Vec<String>) -> Vec<Password> {
             password: String::from(split_line[1]),
             min: policy_min_max[0].trim().parse().unwrap(),
             max: policy_min_max[1].trim().parse().unwrap(),
-            policy_letter: policy_split[1].chars().nth(0).unwrap()
+            policy_letter: policy_split[1].chars().nth(0).unwrap(),
         });
     }
 
