@@ -6,6 +6,7 @@ mod day_2;
 mod day_3;
 mod day_4;
 mod day_5;
+mod day_6;
 
 fn main() {
     loop {
@@ -18,6 +19,7 @@ fn main() {
             3 => day_3::day_3(read_part_day()),
             4 => day_4::day_4(read_part_day()),
             5 => day_5::day_5(read_part_day()),
+            6 => day_6::day_6(read_part_day()),
             _ => (println!("Day not found"))
         }
     }
