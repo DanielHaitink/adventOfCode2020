@@ -78,15 +78,18 @@ impl Passport {
     }
 
     fn is_birth_year_valid(&self) -> bool {
-        return self.birth_year.is_some() && !(self.birth_year.unwrap() < 1920 || self.birth_year.unwrap() > 2002);
+        return self.birth_year.is_some() &&
+            !(self.birth_year.unwrap() < 1920 || self.birth_year.unwrap() > 2002);
     }
 
     fn is_issue_year_valid(&self) -> bool {
-        return self.issue_year.is_some() && !(self.issue_year.unwrap() < 2010 || self.issue_year.unwrap() > 2020);
+        return self.issue_year.is_some() &&
+            !(self.issue_year.unwrap() < 2010 || self.issue_year.unwrap() > 2020);
     }
 
     fn is_expiration_year_valid(&self) -> bool {
-        return self.expiration_year.is_some() && !(self.expiration_year.unwrap() < 2020 || self.expiration_year.unwrap() > 2030);
+        return self.expiration_year.is_some() &&
+            !(self.expiration_year.unwrap() < 2020 || self.expiration_year.unwrap() > 2030);
     }
 
     fn is_height_valid(&self) -> bool {
@@ -95,8 +98,10 @@ impl Passport {
         }
 
         return match self.height.as_ref().unwrap().system {
-            HeightSystem::Metric => !(self.height.as_ref().unwrap().height < 150 || self.height.as_ref().unwrap().height > 193),
-            HeightSystem::Imperial => !(self.height.as_ref().unwrap().height < 59 || self.height.as_ref().unwrap().height > 76),
+            HeightSystem::Metric => !(self.height.as_ref().unwrap().height < 150 ||
+                self.height.as_ref().unwrap().height > 193),
+            HeightSystem::Imperial => !(self.height.as_ref().unwrap().height < 59 ||
+                self.height.as_ref().unwrap().height > 76),
             HeightSystem::None => false
         };
     }
@@ -114,7 +119,8 @@ impl Passport {
     fn is_eye_color_valid(&self) -> bool {
         let valid_colors: Vec<&str> = vec!["amb", "blu", "brn", "gry", "grn", "hzl", "oth"];
 
-        return self.eye_color.is_some() && valid_colors.contains(&&**self.eye_color.as_ref().unwrap());
+        return self.eye_color.is_some() &&
+            valid_colors.contains(&&**self.eye_color.as_ref().unwrap());
     }
 
     fn is_passport_id_valid(&self) -> bool {
@@ -254,7 +260,6 @@ fn contains_optional(passport: &PassportMap) -> bool {
 fn part_two(passports: &Vec<Passport>) {
     let mut valid: usize = 0;
     for passport in passports {
-        println!("{}{}{}{}{}{}{}", passport.is_passport_id_valid(), passport.is_issue_year_valid(), passport.is_height_valid(), passport.is_hair_color_valid(), passport.is_eye_color_valid(), passport.is_expiration_year_valid(), passport.is_birth_year_valid());
         if passport.is_valid_two() {
             valid += 1;
         }

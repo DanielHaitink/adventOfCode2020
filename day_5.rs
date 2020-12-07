@@ -2,8 +2,6 @@ use crate::input::read_input_until_empty;
 use std::collections::HashMap;
 
 struct Seat {
-    row: i8,
-    column: i8,
     id: i16,
 }
 
@@ -56,7 +54,7 @@ fn parse_input(input: &Vec<String>) -> Vec<Seat> {
         let column = string_to_number(split.1);
         let id: i16 = (row) as i16 * 8 + (column) as i16;
 
-        seats.push(Seat{row, column, id});
+        seats.push(Seat{id});
     }
 
     return seats;

@@ -75,7 +75,6 @@ fn read_input() -> Vec<Bag> {
 
         for rule in contain {
             if rule.contains("no other bags") {
-                // bags.push(Bag{color: color.to_string(), contain: None});
                 break;
             }
 

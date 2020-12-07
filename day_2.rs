@@ -71,10 +71,12 @@ fn part_two(lines: Vec<String>) {
 
     let passwords = get_passwords(&lines);
     for password in &passwords {
-        let pos_1 = password.password.chars().nth((password.min - 1) as usize).unwrap() == password.policy_letter;
+        let pos_1 = password.password.chars().nth((password.min - 1) as usize).unwrap() ==
+            password.policy_letter;
         let mut pos_2 = false;
         if password.password.len() >= (password.max - 1) as usize {
-            pos_2 = password.password.chars().nth((password.max - 1) as usize).unwrap() == password.policy_letter;
+            pos_2 = password.password.chars().nth((password.max - 1) as usize).unwrap() ==
+                password.policy_letter;
         }
 
         if pos_2.bitxor(pos_1) {

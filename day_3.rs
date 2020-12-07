@@ -6,7 +6,6 @@ enum Square {
     Open,
     Tree,
     Empty,
-    Count,
 }
 
 struct Area {
@@ -22,8 +21,7 @@ impl Area {
                 match sq {
                     Square::Open => print!("."),
                     Square::Tree => print!("#"),
-                    Square::Empty => print!("?"),
-                    Square::Count => print!("?"),
+                    Square::Empty => print!("?")
                 }
             }
             print!("\n");
@@ -67,7 +65,6 @@ fn check_steps(area: &Area, x_inc: usize, y_inc: usize) -> usize {
             Square::Open => {}
             Square::Tree => trees += 1,
             Square::Empty => {}
-            Square::Count => {}
         }
     }
 
@@ -87,7 +84,6 @@ fn part_one(area: &Area) {
             Square::Open => {}
             Square::Tree => trees += 1,
             Square::Empty => {}
-            Square::Count => {}
         }
     }
 
