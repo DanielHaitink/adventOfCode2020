@@ -8,6 +8,8 @@ mod day_4;
 mod day_5;
 mod day_6;
 mod day_7;
+mod day_8;
+mod day_9;
 
 fn main() {
     loop {
@@ -22,6 +24,8 @@ fn main() {
             5 => day_5::day_5(read_part_day()),
             6 => day_6::day_6(read_part_day()),
             7 => day_7::day_7(read_part_day()),
+            8 => day_8::day_8(read_part_day()),
+            9 => day_9::day_9(read_part_day()),
             _ => (println!("Day not found"))
         }
     }
